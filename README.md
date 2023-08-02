@@ -46,4 +46,4 @@ The Ahan contract inherits from several OpenZeppelin ERC-721 libraries, includin
 The contract is distributed under the MIT License, as indicated by the SPDX-License-Identifier specified at the top of the contract.
 
 **Note:**
-This Readme file provides an overview of the MyToken smart contract and its functions. For further details and use cases, refer to the contract's source code and consult the developer documentation. Always exercise caution when interacting with smart contracts on the Ethereum blockchain, as incorrect usage may result in the loss of funds or assets.
+This Readme file provides an overview of the Ahan smart contract and its functions. For further details and use cases, refer to the contract's source code and consult the developer documentation. Always exercise caution when interacting with smart contracts on the Ethereum blockchain, as incorrect usage may result in the loss of funds or assets.
