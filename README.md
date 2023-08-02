@@ -38,8 +38,8 @@ The Ahan contract inherits from several OpenZeppelin ERC-721 libraries, includin
 - **farmers:** A mapping that stores Farmer structs associated with farmer IDs. Each Farmer struct contains the farmer's Ethereum address, data points (CID), token count, and amount (Ether) collected.
 
 **Demo links**
-[Demo-1][https://youtu.be/Vhk9vlGlkjk]
-[Demo-2][https://youtu.be/ThwTvi3XV5k]
+[Demo-1](https://youtu.be/Vhk9vlGlkjk)
+[Demo-2](https://youtu.be/ThwTvi3XV5k)
 
 **License:**
 The contract is distributed under the MIT License, as indicated by the SPDX-License-Identifier specified at the top of the contract.
