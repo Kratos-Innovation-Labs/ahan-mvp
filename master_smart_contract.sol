@@ -33,7 +33,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     mapping(uint => Farmer) public farmers;//array of farmers
 
-    function addFarmer(address f_address) public
+    function addFarmer(address f_address) public//onboards farmers
     {
         farmer_count++;
         farmers[farmer_count].farmer_address=f_address;
