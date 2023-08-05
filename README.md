@@ -19,7 +19,7 @@ The Ahan contract inherits from several OpenZeppelin ERC-721 libraries, includin
 
 6. **safeMint(uint farmerid):** Users can mint new tokens associated with a farmer using this function. The farmerid specifies the farmer to whom the token will be associated. A user needs to send enough Ether to cover the MINT_PRICE to successfully mint a new token.
 
-7. **_baseURI():** An internal function that returns the base URI for token metadata. In this contract, it returns "ahan.org/".
+7. **_baseURI():** An internal function that returns the base URI for token metadata. In this contract, it returns "ahan.ag/".
 
 8. **_beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize):** An internal function that is called before any token transfer. It ensures that the token transfer is valid.
 
