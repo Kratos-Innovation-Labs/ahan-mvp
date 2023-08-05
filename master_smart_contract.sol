@@ -12,7 +12,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-     uint256 public MINT_PRICE = 1000000000000000000 wei;
+     uint256 public MINT_PRICE = 1000000000000000 wei;
     uint public MAX_SUPPLY = 0;
     uint public tokens_per_farmer=100;
       uint public farmer_count;
