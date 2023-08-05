@@ -12,18 +12,18 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-     uint256 public MINT_PRICE = 1000000000000000 wei;
-    uint public MAX_SUPPLY = 0;
-    uint public tokens_per_farmer=100;
-      uint public farmer_count;
+     uint256 public MINT_PRICE = 1000000000000000000 wei;//price of each NFT
+    uint public MAX_SUPPLY = 0;//Total number of NFTs. Increased when new farmers enter.
+    uint public tokens_per_farmer=100;//Number of tokens for each farmer.
+      uint public farmer_count;//Number of farmers
 
     struct Farmer
     {
-        address farmer_address;
-        mapping(uint => string)  farmer_data;
-        uint noOfCID;
-        uint tokencount;
-        uint amount;
+        address farmer_address;//farmer's wallet address
+        mapping(uint => string)  farmer_data;//CIDs associated with a farmer
+        uint noOfCID;//Number of CIDs
+        uint tokencount;//Number of tokens minted using the farmer's token ID.
+        uint amount;//Amount of money invested in the farmer by the investors.
     }
 
     constructor() ERC721("AHAN", "AHA")
@@ -31,24 +31,24 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _tokenIdCounter.increment();
     }
 
-    mapping(uint => Farmer) public farmers;
+    mapping(uint => Farmer) public farmers;//array of farmers
 
     function addFarmer(address f_address) public
     {
         farmer_count++;
         farmers[farmer_count].farmer_address=f_address;
         MAX_SUPPLY=MAX_SUPPLY+tokens_per_farmer;
-        _safeMint(farmers[farmer_count].farmer_address,(farmer_count-1)*tokens_per_farmer);
+        _safeMint(farmers[farmer_count].farmer_address,(farmer_count-1)*tokens_per_farmer);//minting initial token(Master NFT)
     }
 
     //function that adds CID
-    function addCID(uint farmerid,string memory cid) public
+    function addCID(uint farmerid,string memory cid) public//adding CIDs
     {
         farmers[farmerid].farmer_data[farmers[farmerid].noOfCID] = cid;
         farmers[farmerid].noOfCID++;
     }
     //function to get all the CIDS
-     function getData(uint farmerid) public view returns ( string[] memory) {
+     function getData(uint farmerid) public view returns ( string[] memory) {//retrieving the CIDs
         string[] memory cids = new string[](farmers[farmerid].noOfCID);
         for (uint i = 0; i < farmers[farmerid].noOfCID; i++) {
             cids[i] = farmers[farmerid].farmer_data[i];
@@ -56,7 +56,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         return cids;
     }
 
-    function transferAmount(uint farmerid,uint percentage) public payable 
+    function transferAmount(uint farmerid,uint percentage) public payable //transferring the percentage of money to farmer wallet
     {
         require(farmerid<=farmer_count, "Farmer does not exist");
         require(farmers[farmerid].amount > 0, "Balance is zero");
@@ -65,7 +65,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         farmers[farmerid].amount=farmers[farmerid].amount-toPay;
     }
     
-    function safeMint(uint farmerid) public payable  {
+    function safeMint(uint farmerid) public payable  {//minting NFTs, from contract to investors.
                 require(farmerid<=farmer_count, "Farmer does not exist");
        require(totalSupply() < (MAX_SUPPLY+1), "Can't mint anymore tokens.");        
         require(msg.value >= MINT_PRICE, "Not enough ether sent.");
@@ -77,7 +77,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ahan.org/";
+        return "ahan.ag/";
     }
 
     // The following functions are overrides required by Solidity.
