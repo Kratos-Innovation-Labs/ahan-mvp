@@ -39,7 +39,6 @@ The Ahan contract inherits from several OpenZeppelin ERC-721 libraries, includin
 
 **Demo links**
 
-[Demo-1](https://youtu.be/Vhk9vlGlkjk) ||
 [Demo-2](https://youtu.be/ThwTvi3XV5k)
 
 **License:**
