@@ -12,7 +12,7 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-     uint256 public MINT_PRICE = 1000000000000 wei;//price of each NFT. Make sure this value is in wei and not ETH because of the transfer function.
+     uint256 public MINT_PRICE = 10000000000000 wei;//price of each NFT. Make sure this value is in wei and not ETH because of the transfer function.
     uint public MAX_SUPPLY = 0;//Total number of NFTs. Increased when new farmers enter.
     uint public tokens_per_farmer=100;//Number of tokens for each farmer.
       uint public farmer_count;//Number of farmers
