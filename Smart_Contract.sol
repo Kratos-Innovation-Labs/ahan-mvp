@@ -75,6 +75,8 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         farmers[farmerid].tokencount++;
         _tokenIdCounter.increment();
         _safeMint(msg.sender, tokenId);
+        _setTokenURI(tokenId,"https://bafkreibryhro5qkm5qebazepnib6xwn5zdx3xyjibmdonssavbktskeccq.ipfs.nftstorage.link/");
+
         farmers[farmerid].amount+=msg.value;
         investor[++investor_count]=msg.sender;
     }
